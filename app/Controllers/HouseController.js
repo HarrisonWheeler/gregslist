@@ -25,10 +25,15 @@ export default class HouseController {
       lotSize: formData.lotSize.value,
       garageBays: formData.garageBays.value,
       imgUrl: formData.imgUrl.value,
-      description: formData.description.value
+      price: formData.price.value
     }
     _HouseService.addHouse(rawHouseData)
     formData.reset()
+    _draw()
+  }
+
+  deleteCar(houseId) {
+    _houses.deleteCar(houseId)
     _draw()
   }
 
