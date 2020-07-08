@@ -21,7 +21,8 @@
             <div class="col-12 text-center">
                 <h5 class="pt-2">Submit Your House!</h5>
             </div>
-            <form action="" class="col-6 border rounded shadow bg-dark text-light pt-2 pb-2">
+            <form onsubmit="app.houseController.addHouse(event)" action=""
+                class="col-6 border rounded shadow bg-dark text-light pt-2 pb-2">
                 <div class="form-group">
                     <label for="">Year Built</label>
                     <input type="number" min="1850" max="2020" name="yearBuilt" id="" class="form-control"
@@ -46,7 +47,11 @@
                     <label for="">Image URL</label>
                     <input type="text" name="imgUrl" id="" class="form-control" placeholder="Enter Image URL...">
                 </div>
-                <button class="btn btn-danger btn-block">Submit</button>
+                <div class="form-group">
+                    <label for="">Description</label>
+                    <input type="text" name="description" id="" class="form-control" placeholder="Enter Description">
+                </div>
+                <button class="btn btn-success btn-block" type="submit">Submit</button>
             </form>
         </div>
         <div id="houses" class="row">
