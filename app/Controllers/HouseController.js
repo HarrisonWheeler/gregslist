@@ -1,4 +1,4 @@
-import _HouseService from "../Services/HouseService.js"
+import _houseService from "../Services/HouseService.js"
 import _store from "../store.js"
 
 
@@ -27,13 +27,13 @@ export default class HouseController {
       imgUrl: formData.imgUrl.value,
       price: formData.price.value
     }
-    _HouseService.addHouse(rawHouseData)
+    _houseService.addHouse(rawHouseData)
     formData.reset()
     _draw()
   }
 
-  deleteCar(houseId) {
-    _houses.deleteCar(houseId)
+  deleteHouse(houseId) {
+    _houseService.deleteHouse(houseId)
     _draw()
   }
 

@@ -12,9 +12,13 @@ console.log("hello from store");
 
 
 class Store {
-  /**
-   * Provides access to application state data
-   */
+  deleteHouse(houseId) {
+    let indexToRemove = _state.houses.findIndex(house => house.id == houseId)
+    if (indexToRemove < 0) {
+      console.error("INVALID HOUSE ID")
+    }
+    _state.houses.splice(indexToRemove, 1)
+  }
 
   addHouse(newHouse) {
     _state.houses.push(newHouse)

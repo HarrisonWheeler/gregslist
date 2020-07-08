@@ -6,6 +6,10 @@ class HouseService {
   constructor() {
     console.log("hello from house service");
   }
+
+  deleteHouse(houseId) {
+    _store.deleteHouse(houseId)
+  }
   addHouse(rawHouseData) {
     let newHouse = new House(rawHouseData)
     _store.addHouse(newHouse)

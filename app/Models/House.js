@@ -1,14 +1,15 @@
-
+let id = 1
 
 export default class House {
   constructor(rawHouseData) {
     console.log("Hello from the house model");
+    this.id = id++
     this.yearBuilt = rawHouseData.yearBuilt
     this.homeSize = rawHouseData.homeSize
     this.lotSize = rawHouseData.lotSize
     this.garageBays = rawHouseData.garageBays
     this.imgUrl = rawHouseData.imgUrl
-    this.description = rawHouseData.description
+    this.price = rawHouseData.price
   }
 
   get Template() {
@@ -19,8 +20,8 @@ export default class House {
                 <h2>${this.lotSize}</h2>
                 <h2>${this.garageBays}</h2>
                 <img class="img-fluid" src="${this.imgUrl}"/>
-                <h2>${this.description}</h2>
-                <button class="btn btn-danger btn-block" onclick="app.houseController">Delete</button>
+                <h2>${this.price}</h2>
+                 <button class="btn btn-danger btn-block" onclick="app.houseController.deleteHouse(${this.id})">Delete</button>
             </div>
     `
   }
