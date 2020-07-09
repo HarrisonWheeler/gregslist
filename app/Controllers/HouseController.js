@@ -22,7 +22,6 @@ export default class HouseController {
     let rawHouseData = {
       yearBuilt: formData.yearBuilt.value,
       homeSize: formData.homeSize.value,
-      lotSize: formData.lotSize.value,
       garageBays: formData.garageBays.value,
       imgUrl: formData.imgUrl.value,
       price: formData.price.value
