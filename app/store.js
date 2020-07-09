@@ -8,7 +8,6 @@ let _state = {
   /** @type {House[]} */
   houses: []
 };
-console.log("hello from store");
 
 
 class Store {

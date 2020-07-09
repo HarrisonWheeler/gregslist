@@ -1,24 +1,28 @@
-
+let id = 1
 
 
 export default class Job {
-  constructor() {
+  constructor(rawJobData) {
     console.log("hello from job model");
-
+    this.id = id++
+    this.jobType = rawJobData.jobType
+    this.payRate = rawJobData.homeSize
+    this.city = rawJobData.city
+    this.description = rawJobData.description
+    this.startDate = rawJobData.startDate
 
 
   }
-  // get Template() {
-  //   //   return  /*html*/ `
-  //   //   <div class="col-3 border rounded shadow bg-dark text-light pb-2 pt-2">
-  //   //               <h2>Year: ${}</h2>
-  //   //               <h2>Size(Sq Ft): ${}</h2>
-  //   //               <h2>Garage Bays: ${}</h2>
-  //   //               <img class="img-fluid" src="${}"/>
-  //   //               <h2>Price: $ ${this}</h2>
-  //   //                <button class="btn btn-danger btn-block" onclick="app.houseController.deleteHouse(${})">Delete</button>
-  //   //           </div>
-  //   //   `
-  //   // }
-  // }
+  get Template() {
+    return  /*html*/ `
+      <div class="col-3 border rounded shadow bg-dark text-light pb-2 pt-2">
+                  <h2>Job Type: ${this.jobType}</h2>
+                  <h2>Pay Rate: ${this.payRate}</h2>
+                  <h2>City: ${this.city}</h2>
+                  <h2>Description: ${this.description}</h2>
+                  <h2>Start Date: ${this.startDate}</h2>
+                   <button class="btn btn-danger btn-block" onclick="app.jobController.deleteHouse()">Delete</button>
+              </div>
+      `
+  }
 }

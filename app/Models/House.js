@@ -2,7 +2,6 @@ let id = 1
 
 export default class House {
   constructor(rawHouseData) {
-    console.log("Hello from the house model");
     this.id = id++
     this.yearBuilt = rawHouseData.yearBuilt
     this.homeSize = rawHouseData.homeSize
