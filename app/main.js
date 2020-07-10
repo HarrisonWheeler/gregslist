@@ -12,4 +12,3 @@ class App {
 
 window["app"] = new App();
 
-console.log("hello from main");

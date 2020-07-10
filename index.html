@@ -80,7 +80,7 @@
             </div>
             <div class="col-4 text-center">
                 <h5>Submit a Car!</h5>
-                <form onsubmit="app.houseController.addCar(event)" action=""
+                <form onsubmit="app.carController.addCar(event)" action=""
                     class="col-6 border rounded shadow bg-dark text-light pt-2 pb-2 mx-auto">
                     <div class="form-group">
                         <label for="">Year</label>
@@ -109,17 +109,11 @@
             </div>
         </div>
 
-        <div id="houses" class="row">
-            <!-- <div class="col-3 border rounded shadow bg-dark text-light pb-2 pt-2">
-                    <h2>Year Built:</h2>
-                <h2>Home Size:</h2>
-                <h2>Lot Size:</h2>
-                <h2>Garages:</h2>
-                <h2>Image:</h2>
-                <button class="btn btn-danger btn-block" onclick="app.houseController">Delete</button>
-            </div> -->
+        <div class="row">
+            <div class="col-4" id="houses"></div>
+            <div class="col-4" id="jobs"></div>
+            <div class="col-4" id="cars"></div>
         </div>
-        <div id="jobs" class="row"></div>
     </main>
 
 

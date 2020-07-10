@@ -1,6 +1,7 @@
 import Value from "./Models/Value.js";
 import House from "./Models/House.js";
 import Job from "./Models/Job.js";
+import Car from "./Models/Car.js";
 
 let _state = {
   activeValue: new Value({ title: "Value" }),
@@ -9,7 +10,9 @@ let _state = {
   /** @type {House[]} */
   houses: [],
   /** @type {Job[]} */
-  jobs: []
+  jobs: [],
+  /** @type {Car[]} */
+  cars: []
 };
 
 
@@ -36,6 +39,11 @@ class Store {
   addHouse(newHouse) {
     _state.houses.push(newHouse)
   }
+
+  addCar(newCar) {
+    _state.cars.push(newCar)
+  }
+
   get State() {
     return _state;
   }

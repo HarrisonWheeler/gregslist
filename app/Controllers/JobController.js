@@ -10,7 +10,6 @@ function _draw() {
 
 export default class JobController {
   constructor() {
-    console.log("hello from the job controller");
     _draw()
   }
   addJob(event) {
