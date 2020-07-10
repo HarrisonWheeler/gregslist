@@ -1,9 +1,9 @@
 import _jobService from "../Services/JobService.js"
-import _JobStore from "../JobStore.js"
+import _store from "../store.js"
 
 function _draw() {
   let template = ""
-  let jobs = _JobStore.State.jobs
+  let jobs = _store.State.jobs
   jobs.forEach(job => template += job.Template)
   document.getElementById("jobs").innerHTML = template
 }

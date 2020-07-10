@@ -6,11 +6,10 @@ export default class Job {
     console.log("hello from job model");
     this.id = id++
     this.jobType = rawJobData.jobType
-    this.payRate = rawJobData.homeSize
+    this.payRate = rawJobData.payRate
     this.city = rawJobData.city
     this.description = rawJobData.description
     this.startDate = rawJobData.startDate
-
 
   }
   get Template() {

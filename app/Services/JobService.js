@@ -1,4 +1,4 @@
-import _JobStore from "../JobStore.js"
+import _store from "../store.js"
 import Job from "../Models/Job.js"
 
 
@@ -8,7 +8,7 @@ class JobService {
   }
   addJob(rawJobData) {
     let newJob = new Job(rawJobData)
-    _JobStore.addJob(newJob)
+    _store.addJob(newJob)
   }
 }
 
