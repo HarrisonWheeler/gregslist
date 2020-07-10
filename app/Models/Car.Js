@@ -15,7 +15,7 @@ export default class Car {
 
 
     return /*html*/ `
-    <div class="col-4 border rounded shadow bg-dark text-light pb-2 pt-2">
+    <div class="col-4 border rounded shadow bg-dark text-light pb-2 pt-2 mx-auto">
                   <h2>Year: ${this.year}</h2>
                   <h2>Make: ${this.make}</h2>
                   <h2>Model: ${this.model}</h2>

@@ -12,7 +12,7 @@ export default class House {
 
   get Template() {
     return  /*html*/ `
-    <div class="col-3 border rounded shadow bg-dark text-light pb-2 pt-2">
+    <div class="col-4 border rounded shadow bg-dark text-light pb-2 pt-2">
                 <h2>Year: ${this.yearBuilt}</h2>
                 <h2>Size(Sq Ft): ${this.homeSize}</h2>
                 <h2>Garage Bays: ${this.garageBays}</h2>
