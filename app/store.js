@@ -1,54 +1,78 @@
-import Value from "./Models/Value.js";
+
 import House from "./Models/House.js";
 import Job from "./Models/Job.js";
 import Car from "./Models/Car.js";
 
 let _state = {
-  activeValue: new Value({ title: "Value" }),
-  /** @type {Value[]} */
-  values: [],
-  /** @type {House[]} */
-  houses: [],
-  /** @type {Job[]} */
-  jobs: [],
   /** @type {Car[]} */
-  cars: []
+  cars: [],
+  houses: [],
+  jobs: []
 };
 
+/** Collection of listeners to be called based on keyed state changes
+ * @type {{[x:string]: function[]}}
+ */
+let _listeners = {
+  cars: [],
+  houses: [],
+  jobs: []
+};
 
-class Store {
-  deleteHouse(houseId) {
-    let indexToRemove = _state.houses.findIndex(house => house.id == houseId)
-    if (indexToRemove < 0) {
-      console.error("INVALID HOUSE ID")
-    }
-    _state.jobs.splice(indexToRemove, 1)
-  }
+//NOTE You should not need to change the code from this point down
 
-  deleteJob(jobId) {
-    let indexToRemove = _state.jobs.findIndex(job => job.id == jobId)
-    if (indexToRemove < 0) {
-      console.error("INVALID CAR ID")
-    }
-    _state.jobs.splice(indexToRemove, 1)
-  }
-  addJob(newJob) {
-    _state.jobs.push(newJob)
-  }
-
-  addHouse(newHouse) {
-    _state.houses.push(newHouse)
-  }
-
-  addCar(newCar) {
-    _state.cars.push(newCar)
-  }
-
-  get State() {
-    return _state;
+/**
+ * Validates the property string is defined in both the state and the listeners
+ * @param {string} prop
+ */
+function _validateProp(prop) {
+  if (!_state.hasOwnProperty(prop) || !Array.isArray(_listeners[prop])) {
+    throw new Error(
+      `Unkown property ${prop}, please review your state and listeners`
+    );
   }
 }
 
+/**
+ * Validates the subscriber is a function
+ * @param {function} fn
+ * @param {string} prop
+ */
+function _validateSubscriber(fn, prop) {
+  if (typeof fn != "function") {
+    throw new Error(`Unable to subscribe to ${prop} fn must be a function`);
+  }
+}
 
-const STORE = new Store();
-export default STORE;
+class Store {
+  /**
+   * Provides access to application state data
+   */
+  get State() {
+    return _state;
+  }
+  /**
+   * Takes in a property to observe, and a function to run when it changes
+   * @param {string} prop
+   * @param {function} fn
+   */
+  subscribe(prop, fn) {
+    _validateProp(prop);
+    _validateSubscriber(fn, prop);
+    _listeners[prop].push(fn);
+  }
+
+  /**
+   * Takes in a property to set, and the value to set it to
+   * @param {string} prop
+   * @param {any} data
+   */
+  commit(prop, data) {
+    _validateProp(prop);
+    _state[prop] = data;
+    _listeners[prop].forEach(fn => fn());
+  }
+}
+
+const store = new Store();
+export default store;

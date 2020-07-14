@@ -1,5 +1,6 @@
 import _carService from "../Services/CarService.js"
 import _store from "../store.js"
+import store from "../store.js"
 
 
 function _draw() {
@@ -12,7 +13,7 @@ function _draw() {
 export default class CarController {
   constructor() {
     console.log("hello from the car controller");
-    _draw()
+    store.subscribe("cars", _draw)
   }
 
   addCar(event) {
@@ -24,10 +25,13 @@ export default class CarController {
       make: formData.make.value,
       model: formData.model.value,
       imgUrl: formData.imgUrl.value,
-      price: formData.price.value
+      price: formData.price.value,
     }
     _carService.addCar(rawJobData)
     formData.reset()
-    _draw()
   }
+  deleteCar(carId) {
+    _carService.deleteCar(carId)
+  }
+
 }
