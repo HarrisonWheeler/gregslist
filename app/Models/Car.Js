@@ -20,7 +20,7 @@ export default class Car {
                   <h2>Model: ${this.model}</h2>
                   <img src="${this.imgUrl}" class="img-fluid" alt=""/>
                   <h2>Price: ${this.price}</h2>
-                   <button class="btn btn-danger btn-block" onclick="app.carController.deleteCar()">Delete</button>
+                   <button class="btn btn-danger btn-block" onclick="app.carController.deleteCar('${this.id}')">Delete</button>
               </div>
     `
   }
