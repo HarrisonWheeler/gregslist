@@ -9,7 +9,7 @@ const _api = axios.create({
 
 class CarService {
   constructor() {
-    console.log("hello from the car service");
+
   }
 
   getCars() {

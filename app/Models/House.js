@@ -1,24 +1,27 @@
-let id = 1
 
 export default class House {
-  constructor(rawHouseData) {
-    this.id = id++
-    this.yearBuilt = rawHouseData.yearBuilt
-    this.homeSize = rawHouseData.homeSize
-    this.garageBays = rawHouseData.garageBays
-    this.imgUrl = rawHouseData.imgUrl
-    this.price = rawHouseData.price
+  constructor(data) {
+    this.id = data._id
+    this.bathrooms = data.bathrooms
+    this.bedrooms = data.bedrooms
+    this.desription = data.description
+    this.imgUrl = data.imgUrl
+    this.levels = data.levels
+    this.price = data.price
+    this.year = data.year
   }
 
   get Template() {
     return  /*html*/ `
     <div class="col-4 border rounded shadow bg-dark text-light pb-2 pt-2">
-                <h2>Year: ${this.yearBuilt}</h2>
-                <h2>Size(Sq Ft): ${this.homeSize}</h2>
-                <h2>Garage Bays: ${this.garageBays}</h2>
+                <h3>Bedrooms: ${this.bedrooms}</h3>
+                <h3>Bathrooms: ${this.bathrooms}</h3>
+                <h3>Description: ${this.desription}</h3>
                 <img class="img-fluid" src="${this.imgUrl}"/>
-                <h2>Price: $ ${this.price}</h2>
-                 <button class="btn btn-danger btn-block" onclick="app.houseController.deleteHouse(${this.id})">Delete</button>
+                <h3>Levels: ${this.levels}</h3>
+                <h3>Price: ${this.price}</h3>
+                <h3>Year: ${this.year}</h3>
+                 <button class="btn btn-danger btn-block" onclick="app.houseController.deleteHouse('${this.id}')">Delete</button>
             </div>
     `
   }

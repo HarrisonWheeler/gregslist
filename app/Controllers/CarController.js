@@ -43,7 +43,6 @@ function _draw() {
 
 export default class CarController {
   constructor() {
-    console.log("hello from the car controller");
     store.subscribe("cars", _draw)
   }
 

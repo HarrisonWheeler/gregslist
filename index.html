@@ -23,10 +23,12 @@
         </div>
         <div class="row pt-2 justify-content-around text-center">
             <div class="col-4">
-                <button class="btn btn-rounded btn-success" onclick="">Look at Houses!</button>
+                <button class="btn btn-rounded btn-success" onclick="app.houseController.showHouses()">Look at
+                    Houses!</button>
             </div>
             <div class="col-4">
-                <button class="btn btn-rounded btn-success" onclick="">Look at Jobs!</button>
+                <button class="btn btn-rounded btn-success" onclick="">Look at
+                    Jobs!</button>
             </div>
             <div class="col-4">
                 <button class="btn btn-rounded btn-success" onclick="app.carController.showCars()">Look at
@@ -36,8 +38,10 @@
     </header>
 
     <main class="container-fluid">
-        <div class="row justify-content-center" id="cars">
-        </div>
+        <div class="row justify-content-center" id="cars"></div>
+        <section class="container-fluid">
+            <div class="row justify-content-center" id="houses"></div>
+        </section>
     </main>
 
     <div class="col-12" id="houses"></div>

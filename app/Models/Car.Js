@@ -1,5 +1,4 @@
 
-console.log("hello from the car model");
 export default class Car {
   constructor(data) {
     this.id = data._id
