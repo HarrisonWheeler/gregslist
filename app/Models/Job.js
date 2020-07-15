@@ -1,25 +1,23 @@
-let id = 1
 
 
 export default class Job {
-  constructor(rawJobData) {
-    console.log("hello from job model");
-    this.id = id++
-    this.jobType = rawJobData.jobType
-    this.payRate = rawJobData.payRate
-    this.city = rawJobData.city
-    this.description = rawJobData.description
-    this.startDate = rawJobData.startDate
+  constructor(data) {
+    this.id = data._id
+    this.company = data.company
+    this.description = data.description
+    this.hours = data.hours
+    this.jobTitle = data.jobTitle
+    this.rate = data.rate
 
   }
   get Template() {
     return  /*html*/ `
       <div class="col-4 border rounded shadow bg-dark text-light pb-2 pt-2">
-                  <h2>Job Type: ${this.jobType}</h2>
-                  <h2>Pay Rate: ${this.payRate}</h2>
-                  <h2>City: ${this.city}</h2>
-                  <h2>Description: ${this.description}</h2>
-                  <h2>Start Date: ${this.startDate}</h2>
+                  <h3>Job Type: ${this.company}</h3>
+                  <h3>Pay Rate: ${this.description}</h3>
+                  <h3>City: ${this.hours}</h3>
+                  <h3>Description: ${this.jobTitle}</h3>
+                  <h3>Start Date: ${this.rate}</h3>
                    <button class="btn btn-danger btn-block" onclick="app.jobController.deleteJob()">Delete</button>
               </div>
       `

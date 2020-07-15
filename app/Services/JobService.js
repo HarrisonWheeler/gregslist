@@ -11,10 +11,27 @@ const _api = axios.create({
 class JobService {
   constructor() {
   }
-  addJob(rawJobData) {
-    let newJob = new Job(rawJobData)
-    _store.addJob(newJob)
+
+  getJobs() {
+    _api.get("jobs").then(res => {
+      console.log(res);
+      let jobs = res.data.data.map(rawJobData => new Job(rawJobData))
+      _store.commit("jobs", jobs)
+    }).catch(err => console.error(err))
   }
+  addJob(rawJobData) {
+    _api.post("jobs", rawJobData).then(res => {
+      console.log(res);
+      this.getJobs()
+    }).catch(err => console.error(err))
+  }
+  deleteJob(jobId) {
+    _api.delete("jobs/" + jobId).then(res => {
+      console.log(res);
+      this.getJobs()
+    }).catch(err => console.error(err))
+  }
+
 }
 
 const SERVICE = new JobService()

@@ -15,11 +15,11 @@ export default class Car {
     return /*html*/ `
 
     <div class="col-4 border rounded shadow bg-dark text-light p-2 mx-auto">
-                  <h2>Year: ${this.year}</h2>
-                  <h2>Make: ${this.make}</h2>
-                  <h2>Model: ${this.model}</h2>
+                  <h3>Year: ${this.year}</h3>
+                  <h3>Make: ${this.make}</h3>
+                  <h3>Model: ${this.model}</h3>
                   <img src="${this.imgUrl}" class="img-fluid" alt=""/>
-                  <h2>Price: ${this.price}</h2>
+                  <h3>Price: ${this.price}</h3>
                    <button class="btn btn-danger btn-block" onclick="app.carController.deleteCar('${this.id}')">Delete</button>
               </div>
     `

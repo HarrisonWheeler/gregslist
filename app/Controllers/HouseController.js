@@ -59,7 +59,6 @@ export default class HouseController {
     _houseService.getHouses()
   }
   addHouse(event) {
-    // debugger
     event.preventDefault();
     let formData = event.target
     let rawHouseData = {
