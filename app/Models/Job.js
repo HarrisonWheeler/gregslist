@@ -13,12 +13,12 @@ export default class Job {
   get Template() {
     return  /*html*/ `
       <div class="col-4 border rounded shadow bg-dark text-light pb-2 pt-2">
-                  <h3>Job Type: ${this.company}</h3>
-                  <h3>Pay Rate: ${this.description}</h3>
-                  <h3>City: ${this.hours}</h3>
-                  <h3>Description: ${this.jobTitle}</h3>
-                  <h3>Start Date: ${this.rate}</h3>
-                   <button class="btn btn-danger btn-block" onclick="app.jobController.deleteJob()">Delete</button>
+                  <h3>Company: ${this.company}</h3>
+                  <h3>Description: ${this.description}</h3>
+                  <h3>Hours: ${this.hours}</h3>
+                  <h3>Job Title: ${this.jobTitle}</h3>
+                  <h3>Rate: ${this.rate}</h3>
+                   <button class="btn btn-danger btn-block" onclick="app.jobController.deleteJob('${this.id}')">Delete</button>
               </div>
       `
   }

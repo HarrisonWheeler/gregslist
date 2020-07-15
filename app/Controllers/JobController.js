@@ -9,17 +9,8 @@ function _draw() {
                 <form onsubmit="app.jobController.addJob(event)" action=""
                 class="col-6 border rounded shadow bg-dark text-light pt-2 pb-2 mx-auto">
                 <div class="form-group">
-                    <label for="">Job Type</label>
-                    <input type="text" name="jobType" id="" class="form-control" placeholder="Enter Job Type...">
-                </div>
-                <div class="form-group">
-                    <label for="">Pay Rate</label>
-                    <input type="number" max="100" min="0" name="payRate" id="" class="form-control"
-                    placeholder="Enter Pay Rate...">
-                </div>
-                <div class="form-group">
-                    <label for="">City</label>
-                    <input type="text" name="city" id="" class="form-control" placeholder="Enter City...">
+                    <label for="">Company</label>
+                    <input type="text" name="company" id="" class="form-control" placeholder="Enter Company...">
                 </div>
                 <div class="form-group">
                     <label for="">Description</label>
@@ -27,9 +18,18 @@ function _draw() {
                     placeholder="Enter Description...">
                 </div>
                 <div class="form-group">
-                    <label for="">Start Date</label>
-                    <input type="text" name="startDate" min="0" id="" class="form-control"
-                    placeholder="Enter Start Date....">
+                    <label for="">Hours</label>
+                    <input type="number" min="0" name="hours" id="" class="form-control" placeholder="Enter Hours...">
+                </div>
+                <div class="form-group">
+                    <label for="">Job Title</label>
+                    <input type="text" name="jobTitle" id="" class="form-control"
+                    placeholder="Enter Job Title...">
+                </div>
+                <div class="form-group">
+                    <label for="">Rate</label>
+                    <input type="number" name="rate" min="0" id="" class="form-control"
+                    placeholder="Enter Rate....">
                 </div>
                 <button class="btn btn-success btn-block" type="submit">Submit</button>
             </form>
@@ -52,7 +52,7 @@ export default class JobController {
   addJob(event) {
     event.preventDefault();
     let formData = event.target
-    console.log("job submitted", formData.jobType.value)
+    console.log("job submitted", formData.jobType)
     let rawJobData = {
       company: formData.company.value,
       description: formData.description.value,
@@ -63,4 +63,8 @@ export default class JobController {
     _jobService.addJob(rawJobData)
     formData.reset()
   }
+  deleteJob(jobId) {
+    _jobService.deleteJob(jobId)
+  }
+
 }
